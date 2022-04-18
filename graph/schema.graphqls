@@ -1,0 +1,70 @@
+type Department {
+  deptNo: ID!
+  deptName: String!
+}
+
+type Employee {
+  empNo: ID!
+  birthDate: Time!
+  firstName: String!
+  lastName: String!
+  gender: String!
+  hireDate: Time!
+}
+
+type DeptEmp {
+  empNo: String!
+  deptNo: String!
+  fromDate: Time!
+  toDate: Time!
+}
+
+type DeptManager {
+  empNo: String!
+  deptNo: String!
+  fromDate: Time!
+  toDate: Time!
+}
+
+type Salary {
+  empNo: ID!
+  salary: String!
+  fromDate: Time!
+  toDate: Time!
+}
+
+type Title {
+  empNo: String!
+  title: String!
+  fromDate: Time!
+  toDate: Time!
+}
+
+type Query {
+  departments(limit: Int, offset: Int): [Department]
+  departmentByDeptNo(deptNo: ID!): Department
+  departmentByEmpNo(empNo: ID!): Department
+  employees(limit: Int, offset: Int): [Employee]
+  employeeByDeptNo(deptNo: ID!): [Employee]
+  employeeByEmpNo(empNo: ID!): Employee
+  salaries(limit: Int, offset: Int): [Salary]
+  salaryByEmpNo(empNo: ID!): Salary
+  deptManagers(limit: Int, offset: Int): [DeptManager]
+  deptManagerByEmpNo(empNo: ID!): [DeptManager]
+  deptManagerByDeptNo(deptNo: ID!): [DeptManager]
+  titles(limit: Int, offset: Int): [Title]
+  titleByEmpNo(empNo: ID!): Title
+}
+
+type Mutation {
+  addDepartment(deptName: String!): Department
+  addEmployee(
+    birthDate: Time!
+    firstName: String!
+    lastName: String!
+    gender: String!
+    hireDate: Time!
+  ): Employee
+}
+
+scalar Time
