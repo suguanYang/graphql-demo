@@ -20,4 +20,5 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/mitchellh/mapstructure v1.2.3 // indirect
+	github.com/rs/cors v1.8.2
 )
